@@ -1,5 +1,5 @@
 import { createApi, fetchBaseQuery } from '@reduxjs/toolkit/query/react'
-import type { Products } from '../types/types'
+import type { CreateNewProductBody, Products } from '../types/types'
 
 export const productsApi = createApi({
   reducerPath: 'productsApi',
@@ -8,7 +8,14 @@ export const productsApi = createApi({
     getProductsByName: builder.query<Products, string>({
       query: (brand) => `products/${brand}`,
     }),
+    addPost: builder.mutation<CreateNewProductBody, Partial<CreateNewProductBody>>({
+      query: (body) => ({
+        url: `products/add`,
+        method: 'POST',
+        body,
+      }),
+    }),
   }),
 })
 
-export const { useGetProductsByNameQuery } = productsApi
+export const { useGetProductsByNameQuery, useAddPostMutation } = productsApi

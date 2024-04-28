@@ -3,3 +3,7 @@ export interface Products {
   images: string;
   brand: string;
 }
+
+export interface CreateNewProductBody {
+  title: string
+}

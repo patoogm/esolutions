@@ -21,7 +21,6 @@ export default function BasicTable({products}) {
     setRowsPerPage(parseInt(event.target.value, 10));
     setPage(0);
   };
-  console.log(products)
 
   if (!products) {
     return <h2>"No hay productos"</h2>
