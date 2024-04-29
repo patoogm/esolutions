@@ -8,12 +8,13 @@ import Paper from '@mui/material/Paper';
 import { columns } from '../common/Common';
 import { TablePagination } from '@mui/material';
 import { SetStateAction, useState } from 'react';
+import { DataResponse } from '../types/types';
 
-export default function BasicTable({products}) {
+export default function BasicTable({products}: DataResponse) {
   const [page, setPage] = useState(0);
-  const [rowsPerPage, setRowsPerPage] = useState(5);
+  const [rowsPerPage, setRowsPerPage] = useState(10);
 
-  const handleChangePage = (event: any, newPage: SetStateAction<number>) => {
+  const handleChangePage = (_event: unknown, newPage: SetStateAction<number>) => {
     setPage(newPage);
   };
 
@@ -40,7 +41,7 @@ export default function BasicTable({products}) {
           </TableHead>
           <TableBody>
             {products.slice(page * rowsPerPage, page * rowsPerPage + rowsPerPage).map((product) => (
-              <TableRow key={product.name}>
+              <TableRow key={product.id}>
                 <TableCell component="th" scope="row">
                   {product.brand}
                 </TableCell>

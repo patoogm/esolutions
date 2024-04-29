@@ -1,9 +1,18 @@
 export interface Products {
-  products: any;
-  images: string;
+  category: string,
+  description: string;
   brand: string;
+  name: string;
+  price: number;
+  id: number;
 }
 
+export interface DataResponse {
+  products: Products[]
+}
 export interface CreateNewProductBody {
-  title: string
+  brand: string,
+  price: string,
+  category: string,
+  description: string
 }
